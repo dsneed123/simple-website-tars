@@ -1,4 +1,5 @@
 export function renderApp(root: HTMLElement): void {
+  if (!(root instanceof HTMLElement)) throw new TypeError('renderApp: root must be an HTMLElement')
   root.innerHTML = `
     <header>
       <h1>TARS</h1>

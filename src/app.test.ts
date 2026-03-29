@@ -24,4 +24,9 @@ describe('renderApp', () => {
     renderApp(root)
     expect(root.querySelector('footer')).not.toBeNull()
   })
+
+  it('throws TypeError when root is not an HTMLElement', () => {
+    expect(() => renderApp({} as HTMLElement)).toThrow(TypeError)
+    expect(() => renderApp({} as HTMLElement)).toThrow('renderApp: root must be an HTMLElement')
+  })
 })
