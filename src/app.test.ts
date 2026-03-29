@@ -10,14 +10,16 @@ describe('renderApp', () => {
 
   it('renders a header with TARS title', () => {
     renderApp(root)
-    expect(root.querySelector('h1')?.textContent).toBe('TARS')
+    expect(root.querySelector('h1')).not.toBeNull()
+    expect(root.querySelector('h1')!.textContent).toBe('TARS')
   })
 
   it('sets status to Online', () => {
     renderApp(root)
     const status = root.querySelector('#status')
-    expect(status?.textContent).toBe('Online')
-    expect(status?.classList.contains('online')).toBe(true)
+    expect(status).not.toBeNull()
+    expect(status!.textContent).toBe('Online')
+    expect(status!.classList.contains('online')).toBe(true)
   })
 
   it('renders a footer', () => {
