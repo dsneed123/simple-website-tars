@@ -16,8 +16,9 @@ export function renderApp(root: HTMLElement): void {
   `
 
   const status = root.querySelector<HTMLParagraphElement>('#status')
-  if (status) {
-    status.textContent = 'Online'
-    status.classList.add('online')
+  if (!status) {
+    throw new Error('renderApp: #status element not found')
   }
+  status.textContent = 'Online'
+  status.classList.add('online')
 }

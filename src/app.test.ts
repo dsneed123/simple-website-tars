@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { renderApp } from './app'
 
 describe('renderApp', () => {
@@ -23,5 +23,10 @@ describe('renderApp', () => {
   it('renders a footer', () => {
     renderApp(root)
     expect(root.querySelector('footer')).not.toBeNull()
+  })
+
+  it('throws if #status element is not found', () => {
+    vi.spyOn(root, 'querySelector').mockReturnValue(null)
+    expect(() => renderApp(root)).toThrow('renderApp: #status element not found')
   })
 })
