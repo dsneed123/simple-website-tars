@@ -1,5 +1,6 @@
 export function renderApp(root: HTMLElement): void {
   const header = document.createElement('header')
+  header.setAttribute('role', 'banner')
   const h1 = document.createElement('h1')
   h1.textContent = 'TARS'
   const tagline = document.createElement('p')
@@ -9,19 +10,23 @@ export function renderApp(root: HTMLElement): void {
   header.appendChild(tagline)
 
   const main = document.createElement('main')
+  main.setAttribute('role', 'main')
   const section = document.createElement('section')
   section.className = 'card'
+  section.setAttribute('aria-label', 'System status')
   const h2 = document.createElement('h2')
   h2.textContent = 'Status'
   const status = document.createElement('p')
   status.id = 'status'
   status.textContent = 'Online'
   status.classList.add('online')
+  status.setAttribute('aria-live', 'polite')
   section.appendChild(h2)
   section.appendChild(status)
   main.appendChild(section)
 
   const footer = document.createElement('footer')
+  footer.setAttribute('role', 'contentinfo')
   const footerP = document.createElement('p')
   footerP.textContent = 'Built by TARS'
   footer.appendChild(footerP)
