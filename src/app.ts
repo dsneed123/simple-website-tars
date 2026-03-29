@@ -1,3 +1,10 @@
+export function setStatus(root: HTMLElement, text: string, cssClass: string): void {
+  const status = root.querySelector<HTMLElement>('#status')
+  if (!status) throw new Error('Status element #status not found')
+  status.textContent = text
+  status.classList.add(cssClass)
+}
+
 export function renderApp(root: HTMLElement): void {
   root.innerHTML = `
     <header>
@@ -15,9 +22,5 @@ export function renderApp(root: HTMLElement): void {
     </footer>
   `
 
-  const status = root.querySelector<HTMLParagraphElement>('#status')
-  if (status) {
-    status.textContent = 'Online'
-    status.classList.add('online')
-  }
+  setStatus(root, 'Online', 'online')
 }
