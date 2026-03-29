@@ -26,4 +26,29 @@ describe('renderApp', () => {
     renderApp(root)
     expect(root.querySelector('footer')).not.toBeNull()
   })
+
+  it('header has role="banner"', () => {
+    renderApp(root)
+    expect(root.querySelector('header')!.getAttribute('role')).toBe('banner')
+  })
+
+  it('main has role="main"', () => {
+    renderApp(root)
+    expect(root.querySelector('main')!.getAttribute('role')).toBe('main')
+  })
+
+  it('footer has role="contentinfo"', () => {
+    renderApp(root)
+    expect(root.querySelector('footer')!.getAttribute('role')).toBe('contentinfo')
+  })
+
+  it('status card has aria-label="System status"', () => {
+    renderApp(root)
+    expect(root.querySelector('section.card')!.getAttribute('aria-label')).toBe('System status')
+  })
+
+  it('status span has aria-live="polite"', () => {
+    renderApp(root)
+    expect(root.querySelector('#status')!.getAttribute('aria-live')).toBe('polite')
+  })
 })
